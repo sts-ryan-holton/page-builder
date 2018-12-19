@@ -4,7 +4,9 @@
   "description": "jQuery Page Builder concept",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "sass": "gulp sass",
+    "watch": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,6 @@
     "stylelint": "^9.9.0"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.6"
+    "bulma": "^0.7.2"
   }
 }
