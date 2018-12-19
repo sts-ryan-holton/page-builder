@@ -1,0 +1,7 @@
+.github
+.git
+.editorconfig
+.gulpfile.js
+/src
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md

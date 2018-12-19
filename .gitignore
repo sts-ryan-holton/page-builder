@@ -1,0 +1,10 @@
+# Mac OS X files
+.DS_Store
+.DS_Store?
+
+# Exclude Dev Files
+/node_modules
+/dist
+
+# PHPStorm
+.idea/

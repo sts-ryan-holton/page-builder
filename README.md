@@ -1,2 +1,7 @@
-# page-builder
-:hammer: jQuery Page Builder concept
+# :hammer: jQuery Page Builder Concept
+
+jQuery Page Builder Concept.
+
+### Notes
+
+**:warning: this project is still in development and shouldn't be used.**
