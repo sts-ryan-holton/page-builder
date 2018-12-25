@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="jQuery Page Builder concept">
+    <meta name="keywords" content="HTML, CSS, JS, jQuery, page builder, open source, concept">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jQuery Page Builder Concept</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+  </head>
+  <body class="has-background-light">
+    <nav class="navbar is-white top-navbar js_top-navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          Page Builder
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="top-nav">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="top-nav" class="navbar-menu js_top-nav">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button js_expand">
+                <span class="icon is-small">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button js_expand">
+                <span class="icon is-small">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </a>
+              <a class="button" data-modal="#save-modal">
+                <span class="icon is-small">
+                  <i class="fas fa-save"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button" data-resize="575px">
+                <span class="icon is-small">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+              </a>
+              <a class="button" data-resize="768px">
+                <span class="icon is-small">
+                  <i class="fas fa-tablet-alt"></i>
+                </span>
+              </a>
+              <a class="button" data-resize="1152px">
+                <span class="icon is-small">
+                  <i class="fas fa-desktop"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="box left-menu is-radiusless is-shadowless js_left-menu">
+      <aside class="menu">
+        <p class="menu-label">
+          Components
+        </p>
+        <ul class="menu-list widgets has-text-centered">
+          <li>
+            <button class="button button-widget widget-button is-dark is-outlined">
+              <span class="is-size-7">Button</span>
+            </button>
+            <button class="button button-widget widget-heading is-dark is-outlined widget-button-two">
+              <span class="is-size-7">Heading</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="section js_content-area content-area is-paddingless">
+      <div class="container pb_stage js_pb_stage">
+        <div class="pb_stage_drag">
+          <h3>Drag component here to start building your page.</h3>
+        </div>
+      </div>
+    </section>
+
+    <div id="save-modal" class="modal">
+      <div class="modal-background js_modal-bg"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Export HTML</p>
+          <button class="delete js_modal-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form>
+            <textarea class="textarea" placeholder="Output HTML to copy"></textarea>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button js_modal-close">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="./js/app-min.js"></script>
+  </body>
+</html>

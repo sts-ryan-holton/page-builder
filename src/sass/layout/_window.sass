@@ -1,8 +1,17 @@
 body
   min-height: 100vh
 
+.top-navbar
+  transition: margin-top .35s ease, opacity .35s ease
+  &.top-navbar-reduced
+    margin-top: -2.5rem
+    opacity: 0
+    &:hover
+      opacity: 1
+      margin-top: 0
+
 .left-menu
-  position: fixed
+  position: absolute
   top: 0
   left: 0
   height: 100%
@@ -10,7 +19,9 @@ body
   padding-top: ($navbar-height + $box-padding)
   padding-left: .75rem
   padding-right: .75rem
+  margin-bottom: 0
   border: none
+  transition: left .35s ease
   .widgets li
     display: flex
     button
@@ -18,3 +29,11 @@ body
       flex-basis: 0
   .widget-button-two
     margin-left: .75rem
+  &.left-menu-hide
+    left: -15rem
+
+.content-area
+  margin-left: 15rem
+  transition: margin-left .35s ease
+  &.content-area-wide
+    margin-left: 0

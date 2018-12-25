@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
+const minify = require('gulp-minify');
 const notify = require("gulp-notify");
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
@@ -30,7 +31,7 @@ gulp.task('sass', function() {
     }
   })).pipe(sass({
     outputStyle: 'compact'
-  }).on('error', sass.logError)).pipe(gulp.dest('dist/css/'))
+  }).on('error', sass.logError)).pipe(gulp.dest('docs/css/'))
   .pipe(notify({ message: 'Compiled SASS successfully.' }));
 })
 
@@ -38,11 +39,11 @@ gulp.task('sass', function() {
 // Compile JS
 gulp.task('scripts', function() {
   return gulp.src([
-    'src/js/vendors/*.js',
-    'src/js/app.js'
+    'src/js/lib/*.js'
   ])
   .pipe(concat('app.js'))
-  .pipe(gulp.dest('dist/js/'))
+  .pipe(minify())
+  .pipe(gulp.dest('docs/js/'))
   .pipe(notify({ message: 'Compiled Scripts successfully.' }));
 });
 
@@ -50,7 +51,7 @@ gulp.task('scripts', function() {
 // Watcher
 gulp.task('watch', function() {
   gulp.watch('src/sass/**/*.sass', ['sass', 'lint-css'])
-  gulp.watch('dist/js/app.js', ['scripts'])
+  gulp.watch('src/js/lib/*.js', ['scripts'])
 })
 
 
