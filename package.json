@@ -7,7 +7,7 @@
     "test": "test",
     "sass": "gulp sass",
     "watch": "gulp watch",
-    "bundle": "gulp sass && gulp scripts"
+    "bundle": "gulp sass && gulp vendor-css && gulp scripts"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,7 @@
     "stylelint": "^9.9.0"
   },
   "dependencies": {
-    "bulma": "^0.7.2"
+    "bulma": "^0.7.2",
+    "cool-checkboxes-for-bulma.io": "^1.1.0"
   }
 }

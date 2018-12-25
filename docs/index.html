@@ -6,13 +6,27 @@
     <meta name="keywords" content="HTML, CSS, JS, jQuery, page builder, open source, concept">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>jQuery Page Builder Concept</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/bulma-radio-checkbox.min.css">
     <link rel="stylesheet" type="text/css" href="./css/app.css">
   </head>
   <body class="has-background-light">
-    <nav class="navbar is-white top-navbar js_top-navbar" role="navigation" aria-label="main navigation">
+    <section class="section is-hidden-desktop">
+      <div class="container">
+        <article class="message is-danger">
+          <div class="message-header">
+            <p>No Mobile/Tablet Support</p>
+          </div>
+          <div class="message-body">
+            This page builder is designed to work on larger devices (e.g: laptops). For this reason, and due to the limited screen sizes we cannot offer this page builder to smaller devices. <strong>Please switch to a laptop/desktop machine.</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+    <nav class="navbar is-white top-navbar js_top-navbar is-hidden-touch" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="#">
           Page Builder
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="top-nav">
@@ -39,9 +53,14 @@
                   <i class="fas fa-eye"></i>
                 </span>
               </a>
-              <a class="button" data-modal="#save-modal">
+              <a class="button" data-modal="#save-modal" data-save-modal="save">
                 <span class="icon is-small">
                   <i class="fas fa-save"></i>
+                </span>
+              </a>
+              <a class="button" data-modal="#undo-modal">
+                <span class="icon is-small">
+                  <i class="fas fa-undo"></i>
                 </span>
               </a>
             </div>
@@ -69,29 +88,54 @@
       </div>
     </nav>
 
-    <div class="box left-menu is-radiusless is-shadowless js_left-menu">
+    <div class="box left-menu is-radiusless is-shadowless js_left-menu is-hidden-touch">
       <aside class="menu">
         <p class="menu-label">
           Components
         </p>
         <ul class="menu-list widgets has-text-centered">
           <li>
-            <button class="button button-widget widget-button is-dark is-outlined">
+            <button class="button button-widget widget-button is-dark is-outlined" data-widget="button">
               <span class="is-size-7">Button</span>
             </button>
-            <button class="button button-widget widget-heading is-dark is-outlined widget-button-two">
+            <button class="button button-widget widget-heading is-dark is-outlined widget-button-two" data-widget="heading">
               <span class="is-size-7">Heading</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-hero is-dark is-outlined" data-widget="hero">
+              <span class="is-size-7">Hero</span>
+            </button>
+            <button class="button button-widget widget-image is-dark is-outlined widget-button-two" data-widget="image">
+              <span class="is-size-7">Image</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-box is-dark is-outlined" data-widget="box">
+              <span class="is-size-7">Box</span>
+            </button>
+            <button class="button button-widget widget-hr is-dark is-outlined widget-button-two" data-widget="horizontal-rule">
+              <span class="is-size-7">Horizontal Rule</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-tag is-dark is-outlined" data-widget="tag">
+              <span class="is-size-7">Tag</span>
+            </button>
+            <button class="button button-widget widget-message is-dark is-outlined widget-button-two" data-widget="message">
+              <span class="is-size-7">Message</span>
             </button>
           </li>
         </ul>
       </aside>
     </div>
 
-    <section class="section js_content-area content-area is-paddingless">
+    <section class="section js_content-area content-area is-paddingless is-hidden-touch">
       <div class="container pb_stage js_pb_stage">
         <div class="pb_stage_drag">
-          <h3>Drag component here to start building your page.</h3>
+          <h3>Components will appear here.</h3>
         </div>
+        <div id="stage" class="stage custom-content"></div>
       </div>
     </section>
 
@@ -100,11 +144,21 @@
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title">Export HTML</p>
+          <div class="field field-btn">
+            <p class="control">
+              <div class="b-checkbox is-info is-inline">
+                <input id="checkbox" class="styled js_starter-html" type="checkbox">
+                <label for="checkbox">
+                  Add starter HTML
+                </label>
+              </div>
+            </p>
+          </div>
           <button class="delete js_modal-close" aria-label="close"></button>
         </header>
         <section class="modal-card-body">
           <form>
-            <textarea class="textarea" placeholder="Output HTML to copy"></textarea>
+            <textarea class="textarea js_markup-textarea" placeholder="Output HTML to copy" rows="10"></textarea>
           </form>
         </section>
         <footer class="modal-card-foot">
@@ -113,7 +167,27 @@
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <div id="undo-modal" class="modal">
+      <div class="modal-background js_modal-bg"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Reset Page Builder</p>
+          <button class="delete js_modal-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <p>
+            If you'd like to reset your page and start over, click to confirm below. Your changes will be removed.
+          </p>
+        </section>
+        <footer class="modal-card-foot">
+          <button id="reset-page" class="button is-danger js_modal-close">Yes, reset my page</button>
+          <button class="button js_modal-close">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/app-min.js"></script>
   </body>
 </html>

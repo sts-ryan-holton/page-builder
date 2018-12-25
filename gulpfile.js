@@ -36,6 +36,16 @@ gulp.task('sass', function() {
 })
 
 
+// Compile Vendor CSS
+gulp.task('vendor-css', function() {
+  return gulp.src([
+    'node_modules/cool-checkboxes-for-bulma.io/dist/css/bulma-radio-checkbox.min.css'
+  ])
+  .pipe(gulp.dest('docs/css/'))
+  .pipe(notify({ message: 'Compiled Vendor CSS successfully.' }));
+});
+
+
 // Compile JS
 gulp.task('scripts', function() {
   return gulp.src([
@@ -68,7 +78,3 @@ gulp.task('lint-css', function lintCssTask() {
     ]
   }))
 });
-
-
-// Run all Gulp commands for development
-gulp.task('dev', ['sass', 'scripts']);
