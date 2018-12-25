@@ -20,7 +20,7 @@
     "html",
     "css",
     "js",
-    "bootstrap"
+    "bulma"
   ],
   "author": "Ryan Holton",
   "license": "ISC",
