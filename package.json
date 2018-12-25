@@ -1,12 +1,9 @@
 {
   "name": "page-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "jQuery Page Builder concept",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "sass": "gulp sass",
-    "watch": "gulp watch",
     "bundle": "gulp sass && gulp vendor-css && gulp scripts"
   },
   "repository": {
@@ -29,6 +26,8 @@
   },
   "homepage": "https://github.com/sts-ryan-holton/page-builder#readme",
   "devDependencies": {
+    "bulma": "^0.7.2",
+    "cool-checkboxes-for-bulma.io": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^3.10.0",
@@ -40,9 +39,5 @@
     "gulp-watch": "^5.0.1",
     "gulp-minify": "^3.1.0",
     "stylelint": "^9.9.0"
-  },
-  "dependencies": {
-    "bulma": "^0.7.2",
-    "cool-checkboxes-for-bulma.io": "^1.1.0"
   }
 }
