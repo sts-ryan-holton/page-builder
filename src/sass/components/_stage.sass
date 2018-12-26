@@ -4,7 +4,7 @@
 
 .pb_stage_drag
   padding: 4rem
-  margin: 2rem
+  margin-top: 1.5rem
   text-align: center
   border: .1rem dotted $dark
   background-color: lighten($light, 1%)
@@ -12,7 +12,14 @@
     opacity: .5
 
 .stage
+  display: none
   overflow-y: auto
+  padding: 1rem 1.25rem
+  margin-top: 1.5rem
+  border: .075rem solid lighten($dark, 50%)
+  background-color: lighten($light, 1%)
+  &.stage-shown
+    display: block
 
 .custom-content
   h1
@@ -21,3 +28,13 @@
     font-size: 1.75rem
   hr
     background-color: lighten($dark, 65%)
+
+.stage
+  *
+    cursor: move
+    &:focus,
+    &:active
+      cursor: text
+
+#stage-ghost
+  display: none !important /* stylelint-disable-line declaration-no-important */

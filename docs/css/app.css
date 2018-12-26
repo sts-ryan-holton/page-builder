@@ -3687,17 +3687,25 @@ body { min-height: 100vh; }
 
 .pb_stage { width: 100%; -webkit-transition: max-width .35s ease; transition: max-width .35s ease; }
 
-.pb_stage_drag { padding: 4rem; margin: 2rem; text-align: center; border: .1rem dotted #363636; background-color: #f7f7f7; }
+.pb_stage_drag { padding: 4rem; margin-top: 1.5rem; text-align: center; border: .1rem dotted #363636; background-color: #f7f7f7; }
 
 .pb_stage_drag:hover { opacity: .5; }
 
-.stage { overflow-y: auto; }
+.stage { display: none; overflow-y: auto; padding: 1rem 1.25rem; margin-top: 1.5rem; border: .075rem solid #b5b5b5; background-color: #f7f7f7; }
+
+.stage.stage-shown { display: block; }
 
 .custom-content h1 { font-size: 2rem; }
 
 .custom-content h2 { font-size: 1.75rem; }
 
 .custom-content hr { background-color: #dbdbdb; }
+
+.stage * { cursor: move; }
+
+.stage :active, .stage :focus { cursor: text; }
+
+#stage-ghost { display: none !important; }
 
 .field.field-btn { margin-bottom: 0; margin-right: 1rem; }
 

@@ -1,6 +1,7 @@
 $(function() {
   'use strict'
 
+
   // Expand control
   if ( $('.js_expand').length ) {
     $('.js_expand').click(function() {
@@ -26,6 +27,14 @@ $(function() {
   $('[data-save-modal]').click(function() {
     stageMarkup = $('#stage').html();
     $('.js_markup-textarea').text(stageMarkup);
+  });
+
+  $('.js_clean-html').click(function() {
+    $('#stage').clone().appendTo('#stage-ghost');
+    $('#stage-ghost *').removeAttr('contenteditable class style');
+    stageMarkup = $('#stage-ghost #stage').html();
+    $('.js_markup-textarea').text(stageMarkup);
+    $('#stage-ghost #stage').remove();
   });
 
   var starterHtml = [
@@ -62,47 +71,89 @@ $(function() {
     $(this).click(function() {
       $('.pb_stage_drag').remove();
 
+
       // Heading widget
       if ( $(this).attr('data-widget') === 'heading' ) {
         $('#stage').append('<h2>Your H1 Heading</h2>');
       }
+
 
       // Button widget
       if ( $(this).attr('data-widget') === 'button' ) {
         $('#stage').append('<button class="button">Button</button>');
       }
 
+
       // Hero widget
       if ( $(this).attr('data-widget') === 'hero' ) {
-        $('#stage').append('<section class="hero is-medium is-primary is-bold"><div class="hero-body"><div class="container"><h1 class="title"> Primary bold title</h1><h2 class="subtitle">Primary bold subtitle</h2></div></div></section>');
+        $('#stage').append('<section class="hero is-info is-medium"><div class="hero-body"><div class="container"><h1 class="title"> Primary bold title</h1><h2 class="subtitle">Primary bold subtitle</h2></div></div></section>');
       }
+
 
       // Image widget
       if ( $(this).attr('data-widget') === 'image' ) {
         $('#stage').append('<img src="https://via.placeholder.com/1150x250" alt="Placeholder image" />');
       }
 
+
       // Box widget
       if ( $(this).attr('data-widget') === 'box' ) {
         $('#stage').append('<div class="box">Box component</div>');
       }
+
 
       // Horizontal Rule widget
       if ( $(this).attr('data-widget') === 'horizontal-rule' ) {
         $('#stage').append('<hr>');
       }
 
+
       // Tag widget
       if ( $(this).attr('data-widget') === 'tag' ) {
         $('#stage').append('<span class="tag is-primary">Tag</span>');
       }
+
 
       // Message widget
       if ( $(this).attr('data-widget') === 'message' ) {
         $('#stage').append('<article class="message is-info"><div class="message-header"><p>Info</p><button class="delete" aria-label="delete"></button></div><div class="message-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Pellentesque risus mi</strong>, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Aenean ac <em>eleifend lacus</em>, in mollis lectus. Donec sodales, arcu et sollicitudin porttitor.</div></article>')
       }
 
+
+      // Make content editable
       $('#stage').find('*').attr('contenteditable', true);
+
+
+      // Allow draggable components on stage
+      $('#stage *').draggable({
+        helper: 'clone',
+        containment: 'document'
+      });
+
+
+      // Allow draggable components to drop on components
+      $('#stage *, #stage').droppable({
+        drop:function(event, ui) {
+          ui.draggable.detach().appendTo($(this));
+        }
+      });
+
+
+      // Show/Hide stage
+      if ( $('#stage').find('*').length ) {
+        $('#stage').addClass('stage-shown');
+      } else {
+        $('#stage').removeClass('stage-shown');
+      }
+
+      $('#stage *').hover(
+        function() {
+          $(this).css('outline', '.15rem solid red');
+        }, function() {
+          $(this).css('outline', 'none');
+        }
+      );
+
     });
   });
 
