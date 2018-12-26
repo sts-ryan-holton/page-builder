@@ -181,6 +181,7 @@ $(function() {
 
 
       // Element type
+      var markupType;
       $('#stage *').click(function() {
         var markupType = $(this).prop("tagName");
         $('#widget-type').text(markupType);
@@ -212,6 +213,15 @@ $(function() {
 
         }
 
+      });
+
+      $(document).mouseup(function(e) {
+        var container = $('#stage *');
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          container.removeClass('js__widget-selected');
+          $('#widget-type').text('n/a');
+          $('.js_properties').find('input, select').val('');
+        }
       });
 
     });
