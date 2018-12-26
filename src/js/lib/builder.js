@@ -6,9 +6,11 @@ $(function() {
   if ( $('.js_expand').length ) {
     $('.js_expand').click(function() {
       $('.js_left-menu').toggleClass('left-menu-hide');
+      $('.js_right-menu').toggleClass('right-menu-hide');
       $('.js_content-area').toggleClass('content-area-wide');
       $('.js_top-nav').find('.button').toggleClass('is-small');
       $('.js_top-navbar').toggleClass('top-navbar-reduced')
+      $('#stage').toggleClass('stage-preview');
       $('#stage').find('*').attr('contenteditable', false);
     });
   }
@@ -18,6 +20,15 @@ $(function() {
   $('[data-resize]').each(function() {
     $(this).click(function() {
       $('.js_pb_stage').css('max-width', $(this).attr('data-resize'));
+      if ($(window).width() <= 1819) {
+        if ( $(this).attr('data-resize') == "768px" ) {
+          $('.js_pb_stage').removeClass('js_pb_stage_padding');
+        } else if ( $(this).attr('data-resize') == "575px" ) {
+          $('.js_pb_stage').removeClass('js_pb_stage_padding');
+        } else {
+          $('.js_pb_stage').addClass('js_pb_stage_padding');
+        }
+      }
     });
   });
 
@@ -122,12 +133,20 @@ $(function() {
 
       // Make content editable
       $('#stage').find('*').attr('contenteditable', true);
+      $('#stage *').hover(
+        function() {
+          $(this).parent().attr('contenteditable', false);
+        }, function() {
+          $(this).parent().attr('contenteditable', true);
+        }
+      );
 
 
       // Allow draggable components on stage
       $('#stage *').draggable({
         helper: 'clone',
-        containment: 'document'
+        containment: 'document',
+        cancel: false
       });
 
 
@@ -153,6 +172,12 @@ $(function() {
           $(this).css('outline', 'none');
         }
       );
+
+
+      // Element type
+      $('#stage *').click(function(event) {
+        var markupType = event.target.nodeName;
+      });
 
     });
   });
