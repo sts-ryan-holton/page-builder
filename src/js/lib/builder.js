@@ -145,7 +145,7 @@ $(function() {
       // Allow draggable components on stage
       $('#stage *').draggable({
         helper: 'clone',
-        containment: 'document',
+        containment: '#stage',
         cancel: false
       });
 
