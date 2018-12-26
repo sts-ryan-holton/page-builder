@@ -186,6 +186,10 @@ $(function() {
         var markupType = $(this).prop("tagName");
         $('#widget-type').text(markupType);
 
+        if (markupType == 'H2') {
+
+        }
+
         // Property: ID input
         $('#property-id-input').change(function() {
           $('.js__widget-selected').attr('id', $(this).val());
@@ -198,9 +202,10 @@ $(function() {
 
       });
 
-      $('#stage *').click(function() {
+      $('#stage *').click(function(event) {
         $('#stage *').removeClass('js__widget-selected');
         $(this).addClass('js__widget-selected');
+        event.stopPropagation();
 
         // Fetch Properties
         if ( $(this).hasClass('js__widget-selected') ) {
@@ -212,11 +217,10 @@ $(function() {
           $('#property-class-input').val( $(this).attr('class') );
 
         }
-
       });
 
       $(document).mouseup(function(e) {
-        var container = $('#stage *');
+        var container = $('#stage *, .js_right-menu');
         if (!container.is(e.target) && container.has(e.target).length === 0) {
           container.removeClass('js__widget-selected');
           $('#widget-type').text('n/a');

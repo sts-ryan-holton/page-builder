@@ -5,6 +5,7 @@
     <meta name="description" content="jQuery Page Builder concept">
     <meta name="keywords" content="HTML, CSS, JS, jQuery, page builder, open source, concept">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
     <title>jQuery Page Builder Concept</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
@@ -155,13 +156,22 @@
             <div class="field">
               <label class="label is-small">#</label>
               <div class="control">
-                <input id="property-id-input" class="input is-small" type="text" placeholder="#">
+                <input id="property-id-input" class="input is-small" type="text" placeholder="#" title="ID">
               </div>
             </div>
             <div class="field">
               <label class="label is-small">Class</label>
               <div class="control">
-                <input id="property-class-input" class="input is-small" type="text" placeholder="Class">
+                <input id="property-class-input" class="input is-small" type="text" placeholder="Class" title="Class">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label is-small">Heading Type</label>
+              <div class="select is-small">
+                <select>
+                  <option selected>Select dropdown</option>
+                  <option>With options</option>
+                </select>
               </div>
             </div>
           </li>
