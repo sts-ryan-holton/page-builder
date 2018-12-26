@@ -30,7 +30,7 @@ gulp.task('sass', function() {
       }
     }
   })).pipe(sass({
-    outputStyle: 'compact'
+    outputStyle: 'compressed'
   }).on('error', sass.logError)).pipe(gulp.dest('docs/css/'))
   .pipe(notify({ message: 'Compiled SASS successfully.' }));
 })
