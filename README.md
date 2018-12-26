@@ -8,7 +8,7 @@ jQuery Page Builder Concept. Struggling with HTML markup? Or what to quickly pro
 
 ## :rocket: Getting Started
 
-Visit the **[Page Builder](https://sts-ryan-holton.github.io/page-builder/)** in a web browser to start building your pages.
+Visit the **[Page Builder](https://sts-ryan-holton.github.io/page-builder/)** in a web browser to start building your pages with [Bulma.](https://bulma.io/)
 
 ## :wrench: Issues
 
