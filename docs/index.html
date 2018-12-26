@@ -27,7 +27,7 @@
     <nav class="navbar is-white top-navbar js_top-navbar is-hidden-touch" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="#">
-          Page Builder
+          Page Builder&nbsp;&nbsp;<span class="tag is-info is-small"><strong>v0.0.1</strong></span>
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="top-nav">
           <span aria-hidden="true"></span>
@@ -91,7 +91,7 @@
     <div class="box left-menu is-radiusless is-shadowless js_left-menu is-hidden-touch">
       <aside class="menu">
         <p class="menu-label">
-          Components
+          Widgets
         </p>
         <ul class="menu-list widgets has-text-centered">
           <li>
@@ -133,7 +133,7 @@
     <section class="section js_content-area content-area is-paddingless is-hidden-touch">
       <div class="container pb_stage js_pb_stage js_pb_stage_padding">
         <div class="pb_stage_drag">
-          <h3>Components will appear here.</h3>
+          <h3>Widgets will appear here.</h3>
         </div>
         <div id="stage" class="stage custom-content"></div>
       </div>
@@ -142,11 +142,28 @@
     <div class="box right-menu is-radiusless is-shadowless js_right-menu is-hidden-touch">
       <aside class="menu">
         <p class="menu-label">
-          Components
+          Widget Properties
         </p>
-        <ul class="menu-list widgets has-text-centered">
-          <li>
-            text
+        <ul class="menu-list widgets properties">
+          <li class="flex-column">
+            <div class="field">
+              <label class="label is-small">Widget:</label>
+              <div class="control">
+                <span id="widget-type" class="tag is-primary">n/a</span>
+              </div>
+            </div>
+            <div class="field">
+              <label class="label is-small">#</label>
+              <div class="control">
+                <input id="property-id-input" class="input is-small" type="text" placeholder="#">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label is-small">Class</label>
+              <div class="control">
+                <input id="property-class-input" class="input is-small" type="text" placeholder="Class">
+              </div>
+            </div>
           </li>
         </ul>
       </aside>

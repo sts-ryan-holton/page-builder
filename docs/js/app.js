@@ -42,7 +42,13 @@ $(function() {
 
   $('.js_clean-html').click(function() {
     $('#stage').clone().appendTo('#stage-ghost');
-    $('#stage-ghost *').removeAttr('contenteditable class style');
+    $('#stage-ghost *').removeAttr('contenteditable style');
+    $('#stage-ghost *').removeClass(function (index, className) {
+      return (className.match (/(^|\s)ui-\S+/g) || []).join(' ');
+    });
+    $('#stage-ghost *').removeClass(function (index, className) {
+      return (className.match (/(^|\s)js_\S+/g) || []).join(' ');
+    });
     stageMarkup = $('#stage-ghost #stage').html();
     $('.js_markup-textarea').text(stageMarkup);
     $('#stage-ghost #stage').remove();
@@ -175,8 +181,37 @@ $(function() {
 
 
       // Element type
-      $('#stage *').click(function(event) {
-        var markupType = event.target.nodeName;
+      $('#stage *').click(function() {
+        var markupType = $(this).prop("tagName");
+        $('#widget-type').text(markupType);
+
+        // Property: ID input
+        $('#property-id-input').change(function() {
+          $('.js__widget-selected').attr('id', $(this).val());
+        });
+
+        // Property: Class input
+        $('#property-class-input').change(function() {
+          $('.js__widget-selected').attr('class', $(this).val());
+        });
+
+      });
+
+      $('#stage *').click(function() {
+        $('#stage *').removeClass('js__widget-selected');
+        $(this).addClass('js__widget-selected');
+
+        // Fetch Properties
+        if ( $(this).hasClass('js__widget-selected') ) {
+
+          // Fetch: ID input
+          $('#property-id-input').val( $(this).attr('id') );
+
+          // Fetch: Class input
+          $('#property-class-input').val( $(this).attr('class') );
+
+        }
+
       });
 
     });
