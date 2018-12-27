@@ -49,6 +49,7 @@ gulp.task('vendor-css', function() {
 // Compile JS
 gulp.task('scripts', function() {
   return gulp.src([
+    'node_modules/sweetalert/dist/sweetalert.min.js',
     'src/js/lib/*.js'
   ])
   .pipe(concat('app.js'))

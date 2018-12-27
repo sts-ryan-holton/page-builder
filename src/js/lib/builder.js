@@ -186,10 +186,6 @@ $(function() {
         var markupType = $(this).prop("tagName");
         $('#widget-type').text(markupType);
 
-        if (markupType == 'H2') {
-
-        }
-
         // Property: ID input
         $('#property-id-input').change(function() {
           $('.js__widget-selected').attr('id', $(this).val());
@@ -199,6 +195,45 @@ $(function() {
         $('#property-class-input').change(function() {
           $('.js__widget-selected').attr('class', $(this).val());
         });
+
+        // Property: <select> element
+        var selectOptions = [
+          '<option value="h1" data-remove="true">H1 Heading</option><option value="h2" data-remove="true">H2 Heading</option><option value="h3" data-remove="true">H3 Heading</option><option value="h4" data-remove="true">H4 Heading</option><option value="h5" data-remove="true">H5 Heading</option><option value="h6" data-remove="true">H6 Heading</option>'
+        ];
+
+        if (markupType == 'H1' || markupType == 'H2' || markupType == 'H3' || markupType == 'H4' || markupType == 'H5' || markupType == 'H6') {
+          $('.js_select-options').find('[data-remove="true"]').remove();
+          $('.js_select-options').append(selectOptions[0]);
+          $('.js_select-options').change(function() {
+            if ( $(this).val() == 'h1' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h1 contenteditable='true'>" + $(this).html() + "</h1>";
+              });
+            } else if ( $(this).val() == 'h2' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h2 contenteditable='true'>" + $(this).html() + "</h2>";
+              });
+            } else if ( $(this).val() == 'h3' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h3 contenteditable='true'>" + $(this).html() + "</h3>";
+              });
+            } else if ( $(this).val() == 'h4' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h4 contenteditable='true'>" + $(this).html() + "</h4>";
+              });
+            } else if ( $(this).val() == 'h5' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h5 contenteditable='true'>" + $(this).html() + "</h5>";
+              });
+            } else if ( $(this).val() == 'h6' ) {
+              $('.js__widget-selected').replaceWith(function () {
+                return "<h6 contenteditable='true'>" + $(this).html() + "</h6>";
+              });
+            }
+
+          });
+
+        }
 
       });
 
@@ -225,6 +260,7 @@ $(function() {
           container.removeClass('js__widget-selected');
           $('#widget-type').text('n/a');
           $('.js_properties').find('input, select').val('');
+          $('.js_select-options').find('[data-remove="true"]').remove();
         }
       });
 
