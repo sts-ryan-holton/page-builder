@@ -236,6 +236,25 @@ $(function() {
 
         }
 
+        // Delete widget
+        if ( $(this).hasClass('js__widget-selected') && markupType != '' ) {
+          $('.field-remove').removeClass('is-hidden');
+          $('.js_remove-widget').click(function() {
+            swal({
+              title: "Are you sure?",
+              text: "Once deleted, you will not be able to recover this imaginary file!",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                $('.js__widget-selected').remove();
+              }
+            });
+          });
+        }
+
       });
 
       $('#stage *').click(function(event) {
@@ -256,13 +275,13 @@ $(function() {
       });
 
       $(document).mouseup(function(e) {
-        var container = $('#stage *, .js_right-menu');
+        var container = $('#stage *, .js_right-menu, .swal-modal');
         if (!container.is(e.target) && container.has(e.target).length === 0) {
           container.removeClass('js__widget-selected');
           $('#widget-type').text('n/a');
           $('.js_properties').find('input, select').val('');
           $('.js_select-options').find('[data-remove="true"]').remove();
-          $('.field-headings').addClass('is-hidden');
+          $('.field-headings, .field-remove').addClass('is-hidden');
         }
       });
 
