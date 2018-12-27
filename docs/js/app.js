@@ -203,6 +203,7 @@ $(function() {
         ];
 
         if (markupType == 'H1' || markupType == 'H2' || markupType == 'H3' || markupType == 'H4' || markupType == 'H5' || markupType == 'H6') {
+          $('.field-headings').removeClass('is-hidden');
           $('.js_select-options').find('[data-remove="true"]').remove();
           $('.js_select-options').append(selectOptions[0]);
           $('.js_select-options').change(function() {
@@ -238,7 +239,7 @@ $(function() {
 
       });
 
-      $('#stage *').click(function(event) {
+      $('#stage *, .js_refresher *').click(function(event) {
         $('#stage *').removeClass('js__widget-selected');
         $(this).addClass('js__widget-selected');
         event.stopPropagation();
@@ -262,6 +263,7 @@ $(function() {
           $('#widget-type').text('n/a');
           $('.js_properties').find('input, select').val('');
           $('.js_select-options').find('[data-remove="true"]').remove();
+          $('.field-headings').addClass('is-hidden');
         }
       });
 
