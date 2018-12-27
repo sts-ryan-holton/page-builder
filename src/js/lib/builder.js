@@ -240,18 +240,22 @@ $(function() {
         if ( $(this).hasClass('js__widget-selected') && markupType != '' ) {
           $('.field-remove').removeClass('is-hidden');
           $('.js_remove-widget').click(function() {
-            swal({
-              title: "Are you sure?",
-              text: "Once deleted, you will not be able to recover this imaginary file!",
-              icon: "warning",
-              buttons: true,
-              dangerMode: true,
-            })
-            .then((willDelete) => {
-              if (willDelete) {
-                $('.js__widget-selected').remove();
-              }
-            });
+            if ( $('#stage *').hasClass('js__widget-selected') ) {
+              swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  $('.js__widget-selected').remove();
+                }
+              });
+            } else {
+              swal("Widget Not Selected", "There's no widget selected to remove. Please select a widget first.", "info");
+            }
           });
         }
 
