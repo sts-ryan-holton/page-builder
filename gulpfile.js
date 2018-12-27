@@ -49,7 +49,9 @@ gulp.task('vendor-css', function() {
 // Compile JS
 gulp.task('scripts', function() {
   return gulp.src([
+    'src/js/modernizr.js',
     'node_modules/sweetalert/dist/sweetalert.min.js',
+    'src/js/battery.js',
     'src/js/lib/*.js'
   ])
   .pipe(concat('app.js'))
@@ -62,7 +64,7 @@ gulp.task('scripts', function() {
 // Watcher
 gulp.task('watch', function() {
   gulp.watch('src/sass/**/*.sass', ['sass', 'lint-css'])
-  gulp.watch('src/js/lib/*.js', ['scripts'])
+  gulp.watch('src/js/**/*.js', ['scripts'])
 })
 
 

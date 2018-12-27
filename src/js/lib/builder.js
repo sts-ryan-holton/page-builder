@@ -181,9 +181,9 @@ $(function() {
 
 
       // Element type
-      var markupType;
       $('#stage *').click(function() {
         var markupType = $(this).prop("tagName");
+        var markupTypeClasses = $(this).attr('class');
         $('#widget-type').text(markupType);
 
         // Property: ID input
@@ -231,7 +231,7 @@ $(function() {
                 return "<h6 contenteditable='true'>" + $(this).html() + "</h6>";
               });
             }
-
+            $("[data-widget='refresh']").trigger("click");
           });
 
         }

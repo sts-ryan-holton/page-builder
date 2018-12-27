@@ -10,10 +10,10 @@ body
       opacity: 1
       margin-top: 0
 
-.left-menu
+.left-menu,
+.right-menu
   position: absolute
   top: 0
-  left: 0
   height: 100%
   min-width: 15rem
   padding-top: ($navbar-height + $box-padding)
@@ -21,34 +21,23 @@ body
   padding-right: .75rem
   margin-bottom: 0
   border: none
-  transition: left .35s ease
   .widgets li
     display: flex
     button
       flex-grow: 1
       flex-basis: 0
+
+.left-menu
+  left: 0
+  transition: left .35s ease
   .widget-button-two
     margin-left: .75rem
   &.left-menu-hide
     left: -15rem
 
 .right-menu
-  position: absolute
-  top: 0
   right: 0
-  height: 100%
-  min-width: 15rem
-  padding-top: ($navbar-height + $box-padding)
-  padding-left: .75rem
-  padding-right: .75rem
-  margin-bottom: 0
-  border: none
   transition: right .35s ease
-  .widgets li
-    display: flex
-    button
-      flex-grow: 1
-      flex-basis: 0
   .widget-button-two
     margin-right: .75rem
   &.right-menu-hide
