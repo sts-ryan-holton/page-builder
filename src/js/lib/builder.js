@@ -72,7 +72,7 @@ $(function() {
 
   // Reset control
   $('#reset-page').click(function() {
-    $('#stage').html('');
+    location.reload();
   });
 
 
