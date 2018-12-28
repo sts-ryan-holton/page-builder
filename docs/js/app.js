@@ -308,8 +308,47 @@ $(function() {
           $('.js_properties').find('input, select').val('');
           $('.js_select-options').find('[data-remove="true"]').remove();
           $('.field-headings, .field-remove').addClass('is-hidden');
+          $('[data-property="text-left"], [data-property="text-center"], [data-property="text-right"], [data-property="text-bold"], [data-property="text-itali"], [data-property="text-underline"]').removeClass('is-info is-selected');
         }
       });
+
+    });
+  });
+
+
+  // Properties
+  $('[data-property]').each(function () {
+    $(this).click(function() {
+
+      // Text Alignment
+      if ( $(this).attr('data-property') === 'text-left' ) {
+        $('.js__widget-selected').removeClass('has-text-left has-text-centered has-text-right');
+        $('.js__widget-selected').toggleClass('has-text-left');
+        $('[data-property="text-left"], [data-property="text-center"], [data-property="text-right"]').removeClass('is-info is-selected');
+        $(this).addClass('is-info is-selected');
+      } else if ( $(this).attr('data-property') === 'text-center' ) {
+        $('.js__widget-selected').removeClass('has-text-left has-text-centered has-text-right');
+        $('.js__widget-selected').toggleClass('has-text-centered');
+        $('[data-property="text-left"], [data-property="text-center"], [data-property="text-right"]').removeClass('is-info is-selected');
+        $(this).addClass('is-info is-selected');
+      } else if ( $(this).attr('data-property') === 'text-right' ) {
+        $('.js__widget-selected').removeClass('has-text-left has-text-centered has-text-right');
+        $('.js__widget-selected').toggleClass('has-text-right');
+        $('[data-property="text-left"], [data-property="text-center"], [data-property="text-right"]').removeClass('is-info is-selected');
+        $(this).addClass('is-info is-selected');
+      }
+
+      // Text Options
+      if ( $(this).attr('data-property') === 'text-bold' ) {
+        $('.js__widget-selected').toggleClass('has-text-weight-bold');
+        $(this).toggleClass('is-info is-selected');
+      } else if ( $(this).attr('data-property') === 'text-italic' ) {
+        $('.js__widget-selected').toggleClass('is-italic');
+        $(this).toggleClass('is-info is-selected');
+      } else if ( $(this).attr('data-property') === 'text-underline' ) {
+        $('.js__widget-selected').toggleClass('is-underlined');
+        $(this).toggleClass('is-info is-selected');
+      }
 
     });
   });
