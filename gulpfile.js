@@ -60,7 +60,6 @@ gulp.task('scripts', function() {
   .pipe(notify({ message: 'Compiled Scripts successfully.' }));
 });
 
-
 // Watcher
 gulp.task('watch', function() {
   gulp.watch('src/sass/**/*.sass', ['sass', 'lint-css'])
