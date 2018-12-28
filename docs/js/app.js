@@ -350,6 +350,10 @@ $(function() {
         $(this).toggleClass('is-info is-selected');
       }
 
+      if ( !$('#stage *').hasClass('js__widget-selected') ) {
+        swal("Widget Not Selected", "There's no widget selected to apply this to. Please select a widget first.", "info");
+      }
+
     });
   });
 
