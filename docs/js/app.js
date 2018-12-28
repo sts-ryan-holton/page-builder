@@ -118,8 +118,8 @@ $(function() {
 
 
       // Button widget
-      if ( $(this).attr('data-widget') === 'button' ) {
-        $('#stage').append('<button class="button">Button</button>');
+      if ( $(this).attr('data-widget') === 'a' ) {
+        $('#stage').append('<a class="button" href="#">Button</a>');
       }
 
 
@@ -281,6 +281,28 @@ $(function() {
           });
         }
 
+        if (markupType == 'IMG') {
+          $('.field-img-src').removeClass('is-hidden');
+          $('#property-img-input').bind("keyup change", function(e) {
+            if ( $(this).val() == '' ) {
+              $('img.js__widget-selected').attr('src', 'https://via.placeholder.com/1150x250');
+            } else {
+              $('img.js__widget-selected').attr('src', $(this).val());
+            }
+          });
+        }
+
+        if (markupType == 'A') {
+          $('.field-button-href').removeClass('is-hidden');
+          $('#property-button-input').bind("keyup change", function(e) {
+            if ( $(this).val() == '' ) {
+              $('.js__widget-selected').attr('href', '#');
+            } else {
+              $('.js__widget-selected').attr('href', $(this).val());
+            }
+          });
+        }
+
       });
 
       $('#stage *').click(function(event) {
@@ -291,13 +313,23 @@ $(function() {
         // Fetch Properties
         if ( $(this).hasClass('js__widget-selected') ) {
 
+          // Hide right menu until active widget shown
+          $('.js_right-menu .menu').addClass('right-menu-shown')
+
           // Fetch: ID input
           $('#property-id-input').val( $(this).attr('id') );
 
           // Fetch: Class input
           $('#property-class-input').val( $(this).attr('class') );
 
+          // Fetch: IMG src
+          $('#property-img-input').val( $(this).attr('src') );
+
+          // Fetch: A src
+          $('#property-button-input').val( $(this).attr('href') );
+
         }
+
       });
 
       $(document).mouseup(function(e) {
@@ -307,7 +339,7 @@ $(function() {
           $('#widget-type').text('n/a');
           $('.js_properties').find('input, select').val('');
           $('.js_select-options').find('[data-remove="true"]').remove();
-          $('.field-headings, .field-remove').addClass('is-hidden');
+          $('.field-headings, .field-remove, .field-img-src, .field-button-href').addClass('is-hidden');
           $('[data-property="text-left"], [data-property="text-center"], [data-property="text-right"], [data-property="text-bold"], [data-property="text-itali"], [data-property="text-underline"]').removeClass('is-info is-selected');
         }
       });

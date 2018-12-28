@@ -27,7 +27,7 @@
     </section>
     <nav class="navbar is-white top-navbar js_top-navbar is-hidden-touch" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
+        <a class="navbar-item" href="https://sts-ryan-holton.github.io/page-builder/">
           Page Builder&nbsp;&nbsp;<span class="tag is-info is-small"><strong>v0.0.1</strong></span>
         </a>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="top-nav">
@@ -96,7 +96,7 @@
         </p>
         <ul class="menu-list widgets has-text-centered">
           <li>
-            <button class="button button-widget widget-button is-dark is-outlined" data-widget="button">
+            <button class="button button-widget widget-button is-dark is-outlined" data-widget="a">
               <span class="is-size-7">Button</span>
             </button>
             <button class="button button-widget widget-heading is-dark is-outlined widget-button-two" data-widget="heading">
@@ -156,16 +156,28 @@
                 <span id="widget-type" class="tag is-primary">n/a</span>
               </div>
             </div>
+            <div class="field field-img-src is-hidden">
+              <label class="label is-small">Image Src</label>
+              <div class="control">
+                <input id="property-img-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://via.placeholder.com/100x100" title="IMG src">
+              </div>
+            </div>
+            <div class="field field-button-href is-hidden">
+              <label class="label is-small">Button Href</label>
+              <div class="control">
+                <input id="property-button-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://somewebsite.com/" title="Button src">
+              </div>
+            </div>
             <div class="field">
               <label class="label is-small">#</label>
               <div class="control">
-                <input id="property-id-input" class="input is-small" type="text" placeholder="#" title="ID">
+                <input id="property-id-input" class="input is-small" type="text" maxlength="2000" placeholder="#" title="ID">
               </div>
             </div>
             <div class="field">
               <label class="label is-small">Class</label>
               <div class="control">
-                <input id="property-class-input" class="input is-small" type="text" placeholder="Class" title="Class">
+                <input id="property-class-input" class="input is-small" type="text" maxlength="2000" placeholder="Class" title="Class">
               </div>
             </div>
             <div class="field field-headings is-hidden">
