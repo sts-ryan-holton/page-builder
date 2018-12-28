@@ -11,15 +11,15 @@ const autoprefixer = require('gulp-autoprefixer');
 gulp.task('sass', function() {
   return gulp.src('src/sass/**/*.sass').pipe(sass()).pipe(autoprefixer({
     browsers: [
-      "last 2 versions",
+      "last 1 version",
       ">= 0.2%",
-      "Chrome >= 55",
-      "Firefox >= 55",
-      "Edge >= 16",
+      "Chrome >= 60",
+      "Firefox >= 60",
+      "Edge >= 17",
       "Explorer >= 11",
-      "iOS >= 10",
+      "iOS >= 12",
       "Safari >= 10",
-      "Android >= 4.4"
+      "Android >= 4.4."
 	  ],
     cascade: false
   })).pipe(cleanCSS({
