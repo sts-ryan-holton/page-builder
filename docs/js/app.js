@@ -173,18 +173,20 @@ $(function() {
       // Allow draggable components on stage
       $('#stage *').draggable({
         helper: 'clone',
-        containment: '#stage',
+        containment: '.js_pb_stage',
         cancel: false
       });
 
 
       // Allow draggable components to drop on components
       $('#stage *, #stage').droppable({
+        classes: {
+          "ui-droppable-hover": "ui-state-hover"
+        },
         drop:function(event, ui) {
           ui.draggable.detach().appendTo($(this));
         }
       });
-
 
       // Show/Hide stage
       if ( $('#stage').find('*').length ) {
