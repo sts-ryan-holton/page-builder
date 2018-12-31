@@ -27,6 +27,27 @@ Submit a new relevant issue here: https://github.com/sts-ryan-holton/page-builde
 
 **:warning: Please be sure to search open issues first.**
 
+## :wrench: Browser Support
+
+Due to the features and technologies involved with this project, we only support modern browsers and have limited support for IE 11.
+
+For our front-end UI components & design we are currently supporting the following browsers & browser version:
+
+```
+browsers: [
+  "last 1 version",
+  ">= 0.2%",
+  "Chrome >= 60",
+  "Firefox >= 60",
+  "Edge >= 17",
+  "Explorer >= 11",
+  "iOS >= 12",
+  "Safari >= 10",
+  "Android >= 4.4."
+]
+```
+**:warning: We only recommend using a modern browser such as Google Chrome. Mobile devices are also unsupported right now.**
+
 ## Feature Requests
 
 If you have a feature request, please submit one here: https://github.com/sts-ryan-holton/page-builder/issues/new?template=feature_request.md
