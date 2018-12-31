@@ -49,7 +49,6 @@ gulp.task('vendor-css', function() {
 // Compile JS
 gulp.task('scripts', function() {
   return gulp.src([
-    'src/js/modernizr.js',
     'node_modules/sweetalert/dist/sweetalert.min.js',
     'src/js/battery.js',
     'src/js/lib/*.js'
