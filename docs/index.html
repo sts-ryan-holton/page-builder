@@ -124,9 +124,6 @@
             <button class="button button-widget widget-tag is-dark is-outlined" data-widget="tag">
               <span class="is-size-7">Tag</span>
             </button>
-            <button class="button button-widget widget-message is-dark is-outlined widget-button-two" data-widget="message">
-              <span class="is-size-7">Message</span>
-            </button>
           </li>
           <li class="is-hidden">
             <button class="button button-widget widget-button is-dark is-outlined is-hidden" data-widget="refresh"></button>
@@ -157,13 +154,13 @@
                 <span id="widget-type" class="tag is-primary">n/a</span>
               </div>
             </div>
-            <div class="field field-img-src is-hidden">
+            <div class="field field-img-src is-hidden js_field">
               <label class="label is-small">Image Src</label>
               <div class="control">
                 <input id="property-img-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://via.placeholder.com/100x100" title="IMG src">
               </div>
             </div>
-            <div class="field field-button-href is-hidden">
+            <div class="field field-button-href is-hidden js_field">
               <label class="label is-small">Button Href</label>
               <div class="control">
                 <input id="property-button-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://somewebsite.com/" title="Button src">
@@ -181,7 +178,7 @@
                 <input id="property-class-input" class="input is-small" type="text" maxlength="2000" placeholder="Class" title="Class">
               </div>
             </div>
-            <div class="field field-headings is-hidden">
+            <div class="field field-headings is-hidden js_field">
               <label class="label is-small">Heading Type</label>
               <div class="select is-small">
                 <select class="js_select-options">
@@ -192,21 +189,21 @@
             <label class="label is-small">Text Alignment</label>
             <div class="field has-addons">
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-left">
+                <a class="button is-small js_property" data-property="text-left">
                   <span class="icon is-small">
                     <i class="fas fa-align-left"></i>
                   </span>
                 </a>
               </p>
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-center">
+                <a class="button is-small js_property" data-property="text-center">
                   <span class="icon is-small">
                     <i class="fas fa-align-center"></i>
                   </span>
                 </a>
               </p>
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-right">
+                <a class="button is-small js_property" data-property="text-right">
                   <span class="icon is-small">
                     <i class="fas fa-align-right"></i>
                   </span>
@@ -216,28 +213,28 @@
             <label class="label is-small">Text Options</label>
             <div class="field has-addons">
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-bold">
+                <a class="button is-small js_property" data-property="text-bold">
                   <span class="icon is-small">
                     <i class="fas fa-bold"></i>
                   </span>
                 </a>
               </p>
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-italic">
+                <a class="button is-small js_property" data-property="text-italic">
                   <span class="icon is-small">
                     <i class="fas fa-italic"></i>
                   </span>
                 </a>
               </p>
               <p class="control flex-grow">
-                <a class="button is-small" data-property="text-underline">
+                <a class="button is-small js_property" data-property="text-underline">
                   <span class="icon is-small">
                     <i class="fas fa-underline"></i>
                   </span>
                 </a>
               </p>
             </div>
-            <div class="field field-remove is-hidden">
+            <div class="field field-remove is-hidden js_field">
               <label class="label is-small">Remove this widget?</label>
               <button class="button is-small is-danger js_remove-widget">Remove</button>
             </div>
@@ -292,6 +289,27 @@
         <footer class="modal-card-foot">
           <button id="reset-page" class="button is-danger js_modal-close">Yes, reset my page</button>
           <button class="button js_modal-close">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="alpha-modal" class="modal">
+      <div class="modal-background js_modal-bg js_alpha-close"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Page Builder <span class="tag is-warning is-medium">Alpha Project</span></p>
+          <button class="delete js_modal-close js_alpha-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <p>
+            This page builder is just a <strong>concept project.</strong> For this reason, certain features will only partially work. This is purely to showcase some of the things that can be done using jQuery and a creative mindset.
+          </p>
+          <p>
+            Please accept that there will be bugs with this project, use with caution when attempting to create pages.
+          </p>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-info js_modal-close js_alpha-close">I understand</button>
         </footer>
       </div>
     </div>
