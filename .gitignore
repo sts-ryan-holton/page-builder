@@ -4,7 +4,6 @@
 
 # Exclude Dev Files
 /node_modules
-/dist
 
 # PHPStorm
 .idea/

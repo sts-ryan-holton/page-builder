@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="jQuery Page Builder concept">
+    <meta name="keywords" content="HTML, CSS, JS, jQuery, page builder, open source, concept">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+    <title>jQuery Page Builder Concept</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="./css/bulma-radio-checkbox.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/app.css">
+  </head>
+  <body class="has-background-light">
+    <section class="section is-hidden-desktop">
+      <div class="container">
+        <article class="message is-danger">
+          <div class="message-header">
+            <p>No Mobile/Tablet Support</p>
+          </div>
+          <div class="message-body">
+            This page builder is designed to work on larger devices (e.g: laptops). For this reason, and due to the limited screen sizes we cannot offer this page builder to smaller devices. <strong>Please switch to a laptop/desktop machine.</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+    <nav class="navbar is-white top-navbar js_top-navbar is-hidden-touch" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://sts-ryan-holton.github.io/page-builder/">
+          Page Builder&nbsp;&nbsp;<span class="tag is-info is-small"><strong>v0.1.0</strong></span>
+        </a>
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="top-nav">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="top-nav" class="navbar-menu js_top-nav">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button js_expand">
+                <span class="icon is-small">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button js_expand">
+                <span class="icon is-small">
+                  <i class="fas fa-eye"></i>
+                </span>
+              </a>
+              <a class="button" data-modal="#save-modal" data-save-modal="save">
+                <span class="icon is-small">
+                  <i class="fas fa-save"></i>
+                </span>
+              </a>
+              <a class="button" data-modal="#undo-modal">
+                <span class="icon is-small">
+                  <i class="fas fa-sync-alt"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button" data-resize="575px">
+                <span class="icon is-small">
+                  <i class="fas fa-mobile-alt"></i>
+                </span>
+              </a>
+              <a class="button" data-resize="768px">
+                <span class="icon is-small">
+                  <i class="fas fa-tablet-alt"></i>
+                </span>
+              </a>
+              <a class="button" data-resize="1152px">
+                <span class="icon is-small">
+                  <i class="fas fa-desktop"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="box left-menu is-radiusless is-shadowless js_left-menu is-hidden-touch">
+      <aside class="menu">
+        <p class="menu-label">
+          Widgets
+        </p>
+        <ul class="menu-list widgets has-text-centered">
+          <li>
+            <button class="button button-widget widget-button is-dark is-outlined" data-widget="a">
+              <span class="is-size-7">Button</span>
+            </button>
+            <button class="button button-widget widget-heading is-dark is-outlined widget-button-two" data-widget="heading">
+              <span class="is-size-7">Heading</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-hero is-dark is-outlined" data-widget="hero">
+              <span class="is-size-7">Hero</span>
+            </button>
+            <button class="button button-widget widget-image is-dark is-outlined widget-button-two" data-widget="image">
+              <span class="is-size-7">Image</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-box is-dark is-outlined" data-widget="box">
+              <span class="is-size-7">Box</span>
+            </button>
+            <button class="button button-widget widget-hr is-dark is-outlined widget-button-two" data-widget="horizontal-rule">
+              <span class="is-size-7">Horizontal Rule</span>
+            </button>
+          </li>
+          <li>
+            <button class="button button-widget widget-tag is-dark is-outlined" data-widget="tag">
+              <span class="is-size-7">Tag</span>
+            </button>
+          </li>
+          <li class="is-hidden">
+            <button class="button button-widget widget-button is-dark is-outlined is-hidden" data-widget="refresh"></button>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="section js_content-area content-area is-paddingless is-hidden-touch">
+      <div class="container pb_stage js_pb_stage js_pb_stage_padding">
+        <div class="pb_stage_drag">
+          <h3><strong>Select a widget</strong> to get started. Widgets will appear here.</h3>
+        </div>
+        <div id="stage" class="stage custom-content"></div>
+      </div>
+    </section>
+
+    <div class="box right-menu is-radiusless is-shadowless js_right-menu is-hidden-touch">
+      <aside class="menu">
+        <p class="menu-label">
+          Widget Properties
+        </p>
+        <ul class="menu-list widgets properties js_properties">
+          <li class="flex-column">
+            <div class="field">
+              <label class="label is-small">Widget:</label>
+              <div class="control">
+                <span id="widget-type" class="tag is-primary">n/a</span>
+              </div>
+            </div>
+            <div class="field field-img-src is-hidden js_field">
+              <label class="label is-small">Image Src</label>
+              <div class="control">
+                <input id="property-img-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://via.placeholder.com/100x100" title="IMG src">
+              </div>
+            </div>
+            <div class="field field-button-href is-hidden js_field">
+              <label class="label is-small">Button Href</label>
+              <div class="control">
+                <input id="property-button-input" class="input is-small" type="url" maxlength="2000" placeholder="e.g: https://somewebsite.com/" title="Button src">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label is-small">#</label>
+              <div class="control">
+                <input id="property-id-input" class="input is-small" type="text" maxlength="2000" placeholder="#" title="ID">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label is-small">Class</label>
+              <div class="control">
+                <input id="property-class-input" class="input is-small" type="text" maxlength="2000" placeholder="Class" title="Class">
+              </div>
+            </div>
+            <div class="field field-headings is-hidden js_field">
+              <label class="label is-small">Heading Type</label>
+              <div class="select is-small">
+                <select class="js_select-options">
+                  <option selected>Please Select</option>
+                </select>
+              </div>
+            </div>
+            <label class="label is-small">Text Alignment</label>
+            <div class="field has-addons">
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-left">
+                  <span class="icon is-small">
+                    <i class="fas fa-align-left"></i>
+                  </span>
+                </a>
+              </p>
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-center">
+                  <span class="icon is-small">
+                    <i class="fas fa-align-center"></i>
+                  </span>
+                </a>
+              </p>
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-right">
+                  <span class="icon is-small">
+                    <i class="fas fa-align-right"></i>
+                  </span>
+                </a>
+              </p>
+            </div>
+            <label class="label is-small">Text Options</label>
+            <div class="field has-addons">
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-bold">
+                  <span class="icon is-small">
+                    <i class="fas fa-bold"></i>
+                  </span>
+                </a>
+              </p>
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-italic">
+                  <span class="icon is-small">
+                    <i class="fas fa-italic"></i>
+                  </span>
+                </a>
+              </p>
+              <p class="control flex-grow">
+                <a class="button is-small js_property" data-property="text-underline">
+                  <span class="icon is-small">
+                    <i class="fas fa-underline"></i>
+                  </span>
+                </a>
+              </p>
+            </div>
+            <div class="field field-remove is-hidden js_field">
+              <label class="label is-small">Remove this widget?</label>
+              <button class="button is-small is-danger js_remove-widget">Remove</button>
+            </div>
+          </li>
+        </ul>
+      </aside>
+    </div>
+
+    <div id="save-modal" class="modal">
+      <div class="modal-background js_modal-bg"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Export HTML</p>
+          <div class="field field-btn">
+            <p class="control">
+              <div class="b-checkbox is-info is-inline">
+                <input id="checkbox" class="styled js_starter-html" type="checkbox">
+                <label for="checkbox">
+                  Add starter HTML
+                </label>
+              </div>
+            </p>
+          </div>
+          <div class="field field-btn">
+            <button class="button js_clean-html" type="button">Clean HTML</button>
+          </div>
+          <button class="delete js_modal-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form>
+            <textarea class="textarea js_markup-textarea" placeholder="Output HTML to copy" rows="10"></textarea>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button js_modal-close">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="undo-modal" class="modal">
+      <div class="modal-background js_modal-bg"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Reset Page Builder</p>
+          <button class="delete js_modal-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <p>
+            If you'd like to reset your page and start over, click to confirm below. Your changes will be removed.
+          </p>
+        </section>
+        <footer class="modal-card-foot">
+          <button id="reset-page" class="button is-danger js_modal-close">Yes, reset my page</button>
+          <button class="button js_modal-close">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="alpha-modal" class="modal">
+      <div class="modal-background js_modal-bg js_alpha-close"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Page Builder <span class="tag is-warning is-medium">Alpha Project</span></p>
+          <button class="delete js_modal-close js_alpha-close" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          <p>
+            This page builder is just a <strong>concept project.</strong> For this reason, certain features will only partially work. This is purely to showcase some of the things that can be done using jQuery and a creative mindset.
+          </p>
+          <p>
+            Please accept that there will be bugs with this project, use with caution when attempting to create pages.
+          </p>
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-info js_modal-close js_alpha-close">I understand</button>
+        </footer>
+      </div>
+    </div>
+
+    <div id="stage-ghost"></div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="./js/app-min.js"></script>
+  </body>
+</html>

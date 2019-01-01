@@ -1,10 +1,10 @@
 {
   "name": "page-builder",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "jQuery Page Builder concept",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "bundle": "gulp sass && gulp vendor-css && gulp scripts"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
     "html",
     "css",
     "js",
-    "bootstrap"
+    "bulma"
   ],
   "author": "Ryan Holton",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "gulp-clean-css": "^3.10.0",
     "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
     "gulp-notify": "^3.2.0",
     "gulp-sass": "^4.0.2",
     "gulp-stylelint": "^7.0.0",
@@ -38,7 +39,8 @@
     "stylelint": "^9.9.0"
   },
   "dependencies": {
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.6"
+    "bulma": "^0.7.2",
+    "sweetalert": "^2.1.2",
+    "cool-checkboxes-for-bulma.io": "^1.1.0"
   }
 }
