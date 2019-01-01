@@ -187,7 +187,7 @@ $(function() {
 
 
       // Allow draggable components to drop on components
-      $(stageItem, stage).droppable({
+      $('#stage *, #stage').droppable({ // TODO: fix this as doesn't work with vars. Temp solution provided here.
         classes: {
           "ui-droppable-hover": "ui-state-hover"
         },
