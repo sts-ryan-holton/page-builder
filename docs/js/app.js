@@ -125,6 +125,12 @@ $(function() {
       $('.pb_stage_drag').remove()
 
 
+      // Container widget
+      if ( $(this).attr('data-widget') === 'container' ) {
+        $(stage).append('<div class="container"><div class="columns"><div class="column has-background-primary">Column</div><div class="column has-background-primary">Column</div></div></div>')
+      }
+
+
       // Heading widget
       if ( $(this).attr('data-widget') === 'heading' ) {
         $(stage).append('<h2>Your H1 Heading</h2>')
