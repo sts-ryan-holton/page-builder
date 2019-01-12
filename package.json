@@ -4,7 +4,8 @@
   "description": "jQuery Page Builder concept",
   "main": "index.js",
   "scripts": {
-    "bundle": "gulp sass && gulp vendor-css && gulp scripts"
+    "bundle": "gulp sass && gulp vendor-css && gulp scripts",
+    "lint-css": "gulp lint-css"
   },
   "repository": {
     "type": "git",
@@ -36,11 +37,17 @@
     "gulp-sass": "^4.0.2",
     "gulp-stylelint": "^7.0.0",
     "gulp-watch": "^5.0.1",
+    "husky": "^1.3.1",
     "stylelint": "^9.9.0"
   },
   "dependencies": {
     "bulma": "^0.7.2",
     "sweetalert": "^2.1.2",
     "cool-checkboxes-for-bulma.io": "^1.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint-css"
+    }
   }
 }
