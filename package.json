@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/sts-ryan-holton/page-builder#readme",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-cli": "^2.0.1",
